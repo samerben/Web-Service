@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Customer Status</title>
+<style type="text/css">
+   span {
+        display: inline-block;
+width: 280px;
+text-align: left;
+}
+</style>
+</head>
+<body>
+<div   style="text-align:center;" th:if="${not #strings.isEmpty(response.badRequests)}">
+   <a href="#" th:text="${response.badRequests}" ></a>
+</div>
+<div th:if="${#strings.isEmpty(response.badRequests)}" style="display: block">
+   <h2> Check Results </h2>
+   <span> Student ID:</span> <span th:text="${response.student.id}"></span><br/>
+   <span> Student Name:</span> <span th:text="${response.student.name}"></span><br/>
+   <span> Address City:</span>  <span th:text="${response.student.address.city}"></span><br/>
+   <span> Address Street:</span><span th:text="${response.student.address.street}"></span><br/>
+   <span> Address PosteCode:</span><span th:text="${response.student.address.postecode}"></span><br/>
+   <span> Exam code:</span> <span th:text="${response.exam.code}"></span><br>
+   <span> Exam name:</span><span th:text="${response.exam.name}"></span><br/>
+   <span> Date:</span> <span th:text="${response.date}"></span><br/>
+   <span> BadRequest:</span> <span th:text="${response.badRequests}"></span><br/>
+</div>
+</body>
+</html>
